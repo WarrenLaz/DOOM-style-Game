@@ -10,7 +10,15 @@ from object_handler import *
 from weapon import *
 from sound import *
 from pathfinding import *
+import socket
 
+hostname = socket.gethostname()
+ip_address = socket.gethostbyname(hostname)
+
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+server_socket.bind((ip_address, 12000))
+
+print('ready')
 
 class Game:
     def __init__(self):
